@@ -88,10 +88,10 @@ behavior can be overwritten with the <code>-t:&lt;dir&gt;</code> flag.
 curly brackets, and are used to tell Jeknil where to place different data.
 The currently available variables are:</p>
 <ul>
-<li><code>Jeknil's README</code> - The title of your post, as defined in its Header*.</li>
-<li><code>Everything you need to know to get started with Jeknil.</code> - The description of your post, as defined in its Header.</li>
+<li><code>{title}</code> - The title of your post, as defined in its Header*.</li>
+<li><code>{description}</code> - The description of your post, as defined in its Header.</li>
 <li><code>{content}</code> - The actual content of your post, as written in Markdown.</li>
-<li><code>2020-07-09</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
+<li><code>{date}</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
 </ul>
 <p>*<em>Headers will be explained shortly.</em></p>
 <p>Here is an example of a typical template, including a favicon set, external
@@ -130,7 +130,7 @@ the <em>Header</em>, which is very similar to Jekyll's <em>Front Matter</em>. Th
 starts with <code>~!</code> and ends with <code>!~</code>, or alternatively with standard HTML
 comments. (Jeknil uses whichever it finds first. This is because using these
 symbols more than once causes a parsing error.) At the moment, the Header is
-used to define the <code>Jeknil's README</code> and <code>Everything you need to know to get started with Jeknil.</code> variables, therefore a standard
+used to define the <code>{title}</code> and <code>{description}</code> variables, therefore a standard
 Header would be:</p>
 <pre><code>~!
 title: &quot;An example title&quot;
