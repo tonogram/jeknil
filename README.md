@@ -5,9 +5,16 @@ description: "Everything you need to know to get started with Jeknil."
 
 ![Jeknil Banner](https://knaque.dev/ext/jeknil/jeknil_banner.png "Jeknil Banner")
 
-Jeknil is a dead-simple static blog post generator designed to be as simple as
-possible. No dependencies, no unnecessary deployment process, just a single
-executable that turns Markdown into HTML.
+[![nimble](https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png)](https://github.com/knaque/nimble-tag-2)
+
+[![version](https://nimble.directory/ci/badges/jeknil/version.svg)](https://nimble.directory/pkg/stalinsort)
+[![install test](https://nimble.directory/ci/badges/jeknil/nimdevel/status.svg)](https://github.com/Knaque/stalinsort)
+[![doc build](https://nimble.directory/ci/badges/jeknil/nimdevel/docstatus.svg)](https://nimble.directory/docs/stalinsort//stalinsort.html)
+
+
+Jeknil is a dead-simple static blog post generator designed to be as easy as
+possible to use. No dependencies, no unnecessary deployment process, just a
+single executable that turns Markdown into HTML.
 
 If you're viewing this at [knaque.dev/jeknil](https://knaque.dev/jeknil), then
 you're looking at Jeknil own README turned into nice HTML.
