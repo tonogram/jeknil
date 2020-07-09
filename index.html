@@ -88,10 +88,10 @@ behavior can be overwritten with the <code>-t:&lt;dir&gt;</code> flag.
 curly brackets, and are used to tell Jeknil where to place different data.
 The currently available variables are:</p>
 <ul>
-<li><code>{title}</code> - The title of your post, as defined in its Header*.</li>
-<li><code>{description}</code> - The description of your post, as defined in its Header.</li>
+<li><code>Jeknil's README</code> - The title of your post, as defined in its Header*.</li>
+<li><code>Everything you need to know to get started with Jeknil.</code> - The description of your post, as defined in its Header.</li>
 <li><code>{content}</code> - The actual content of your post, as written in Markdown.</li>
-<li><code>{date}</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
+<li><code>2020-07-09</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
 </ul>
 <p>*<em>Headers will be explained shortly.</em></p>
 <p>Here is an example of a typical template, including a favicon set, external
@@ -101,7 +101,7 @@ fonts, and a code block formatter.</p>
 &lt;head&gt;
     &lt;meta charset=&quot;UTF-8&quot;&gt;
     &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
-    &lt;meta name=&quot;description&quot; content=&quot;{description}&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;Everything you need to know to get started with Jeknil.&quot;&gt;
     &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;../favicons/16.png&quot;&gt;
     &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;../favicons/32.png&quot;&gt;
     &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;180x180&quot; href=&quot;../favicons/180.png&quot;&gt;
@@ -112,10 +112,10 @@ fonts, and a code block formatter.</p>
     &lt;link rel=&quot;stylesheet&quot; href=&quot;./assets/prism.css&quot;&gt;
     &lt;script src=&quot;./assets/prism.js&quot;&gt;&lt;/script&gt;
     &lt;link rel=&quot;stylesheet&quot; href=&quot;./assets/style.css&quot;&gt;
-    &lt;title&gt;knaque's blog - {title}&lt;/title&gt;
+    &lt;title&gt;knaque's blog - Jeknil's README&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;span class=&quot;date&quot;&gt;&lt;i&gt;last updated on {date}&lt;/i&gt;&lt;/span&gt; - &lt;a href=&quot;../index.html&quot;&gt;homepage&lt;/a&gt;
+&lt;span class=&quot;date&quot;&gt;&lt;i&gt;last updated on 2020-07-09&lt;/i&gt;&lt;/span&gt; - &lt;a href=&quot;../index.html&quot;&gt;homepage&lt;/a&gt;
 {content}
 &lt;/body&gt;
 &lt;/html&gt;
@@ -130,7 +130,7 @@ the <em>Header</em>, which is very similar to Jekyll's <em>Front Matter</em>. Th
 starts with <code>~!</code> and ends with <code>!~</code>, or alternatively with standard HTML
 comments. (Jeknil uses whichever it finds first. This is because using these
 symbols more than once causes a parsing error.) At the moment, the Header is
-used to define the <code>{title}</code> and <code>{description}</code> variables, therefore a standard
+used to define the <code>Jeknil's README</code> and <code>Everything you need to know to get started with Jeknil.</code> variables, therefore a standard
 Header would be:</p>
 <pre><code>~!
 title: &quot;An example title&quot;

@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.1"
+version       = "0.2.0"
 author        = "Reilly Moore"
 description   = "A blog post generator for people with priorities."
 license       = "CC0-1.0"

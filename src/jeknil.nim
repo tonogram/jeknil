@@ -23,6 +23,13 @@ template replaceVars(s, t, d, c: string): string =
   s.replace("{content}", c).replace("{title}", t).replace("{description}", d)
     .replace("{date}", date)
 
+# error checking for loading template
+proc tryLoadTemplate(t: string): string =
+  try:
+    result = readFile(t & "template.html")
+  except IOError:
+    quit "Unable to find template.html. Aborting.", QuitFailure
+
 
 if paramCount() > 0:
   var
@@ -59,10 +66,9 @@ if paramCount() > 0:
 
   # set template
   let jtemplate =
-    if generatePlain:
-      plain_template
-    else:
-      readFile(templateLocation & "template.html")
+    if generatePlain: plain_template
+    else: tryLoadTemplate(templateLocation)
+
 
   for file in files:
     # create empty values
@@ -78,54 +84,51 @@ if paramCount() > 0:
       content = example_template.markdown()
     # otherwise find them in the file
     else:
-      
       let
         # load the file
         post = readFile(file)
-        # regex for finding header, depends on which comes first
-        htmlheader =
-          if post.find("<!--") < post.find("~!"): true
-          else: false
-        MetaRe =
+      # regex for finding header, depends on which comes first
+      var htmlheader: bool
+      block CheckHeader:
+        let (a, b) = (post.find("<!--").abs(), post.find("~!").abs())
+        if a == b:
+          quit "File " & file & " appears to be missing a Header. Aborting.",
+            QuitFailure
+        htmlheader = a < b
+      let
+        MetaRe = 
           if htmlheader: re"(?s)<!--.+-->"
-          else: re"(?s)~!.+!~"
+          else: re"(?s)(~!).+(!~)"
         # "size" of header start and end
-        s = 
-          if htmlheader: 4
-          else: 2
-        e = if htmlheader: 3
-          else: 2
-        
+        (s, e) =
+          if htmlheader: (4, 3)
+          else: (2, 2)
         # find start and end of header
         loc = post.findBounds(MetaRe)
-        # use slice to ignore <!-- -->, strip potential whitespace, getMetadata()
+        # use slice to ignore start and end, strip potential whitespace, parse
         metadata = getMetadata(post[loc.first+s..loc.last-e].strip())
       title = metadata.getSectionValue("", "title")
       description = metadata.getSectionValue("", "description")
       # skip header completely, strip just in case, turn into html
       content = post[loc.last+1..^1].strip().markdown()
     
-    block CheckEmptyFields:
-    # check if any fields are empty, print message and skip file if so
-      let
-        has_title = title != ""
-        has_desc = description != ""
-        has_content = content != ""
-      if not has_title or not has_desc or not has_content:
-        echo &"""/!\ One or more elements are missing in file {file}:
-        Has title? {has_title}
-  Has description? {has_desc}
-      Has content? {has_content}
-Skipping file."""
-        break
     
+    # check if any fields are empty
+    if title == "" or description == "" or content == "":
+      quit "File " & file & " appears to be missing one or more required " &
+        "elements (Title, Description, Content). Aborting.", QuitFailure
+    
+
     stdout.write("Writing " & file & "... ")
     # set dir and title, run the replacement
     writeFile(outputLocation & title.makeTitle(),
               jtemplate.replaceVars(title, description, content))
-    stdout.write("✓\n")
+    stdout.write("Done!\n")
 
-  quit "  All done!", QuitSuccess
+
+  quit "  All finished!", QuitSuccess
+
+
 
 else:
   quit help_message, QuitSuccess
