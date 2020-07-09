@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="Everything you need to know to get started with Jeknil.">
+
+    <link rel="icon" type="image/png" sizes="16x16" href="https://knaque.dev/ext/jeknil/favicons/16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="https://knaque.dev/ext/jeknil/favicons/32.png">
+    <link rel="icon" type="image/png" sizes="180x180" href="https://knaque.dev/ext/jeknil/favicons/180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="https://knaque.dev/ext/jeknil/favicons/192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="https://knaque.dev/ext/jeknil/favicons/512.png">
+
+    <link rel="stylesheet" href="https://knaque.dev/ext/jeknil/font/epilogue.css" type="text/css" charset="utf-8" />
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
+
+    <link rel="stylesheet" href="https://knaque.dev/blog/assets/prism.css">
+    <script src="https://knaque.dev/blog/assets/prism.js"></script>
+
+    <style>
+        body {
+            background-color: #2B2B2B;
+            font-family: 'Epilogue';
+            color: #D2D2D2;
+            margin: 2em 20% 2em 20%;
+        }
+
+        code {
+            font-family: 'Fira Code';
+        }
+
+        img {
+            width: 75%;
+        }
+        
+        a:link, a:visited {color: #FFCC00;}
+        a:hover, a:active {color: #FF9900;}
+
+        .date {color: #211F1F;}
+        
+    </style>
+
+    <title>Jeknil's README</title>
+</head>
+<body>
+<span class="date"><i>Last updated on 2020-07-09</i></span>
+<p><img src="https://knaque.dev/ext/jeknil/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" /></p>
+<p>Jeknil is a dead-simple static blog post generator designed to be as simple as
+possible. No dependencies, no unnecessary deployment process, just a single
+executable that turns Markdown into HTML.</p>
+<p>If you're viewing this at <a href="https://knaque.dev/jeknil">knaque.dev/jeknil</a>, then
+you're looking at Jeknil own README turned into nice HTML.
+<a href="https://github.com/knaque/jeknil">Repository</a></p>
+<h1>Installation</h1>
+<p>Make sure you have both the Nim compiler and the Nimble package manager
+installed via <code>nim -v</code> and <code>nimble -v</code> respectively. If you don't both can be
+installed simultaneously <a href="https://nim-lang.org/install.html">here</a>. Once both
+are installed, just do <code>nimble install jeknil</code> and Jeknil will shortly be made
+available in your command line.</p>
+<h2>Building from source</h2>
+<p>Follow the same instructions as above to ensure you have both the Nim compiler
+and Nimble package manager. Once you do, clone this repository, then
+navigate to the clone's folder. <code>nimble install</code> will automatically download
+required libraries, build Jeknil, and install it to your system. Alternatively,
+you can also compile Jeknil with <code>nim c -d:release ./src/jeknil.nim</code>, but this
+method requires both manually installing dependencies and manually adding the
+executable to the PATH, so it's not recommended.</p>
+<h1>Usage</h1>
+<p><code>jeknil [--options] [file(s)]</code></p>
+<p>Run <code>jeknil</code> without any arguments to display help information, including an
+list of each flag and its function.</p>
+<h1>Setup guide</h1>
+<h2>template.html</h2>
+<p>Whenever Jeknil is run, it checks for a file called <code>template.html</code> in the
+working directory. This file describes the format that should be used for posts.
+This is primarily intended for specifying custom <code>&lt;head&gt;</code> data, but can include
+any valid HTML.</p>
+<p>If you don't want to store your template in your working directory, the default
+behavior can be overwritten with the <code>-t:&lt;dir&gt;</code> flag.
+(i.e. <code>jeknil -t:./some_dir</code>)</p>
+<p>The key part of <code>template.html</code> is variables. Variabes are a word surrounded by
+curly brackets, and are used to tell Jeknil where to place different data.
+The currently available variables are:</p>
+<ul>
+<li><code>{title}</code> - The title of your post, as defined in its Header*.</li>
+<li><code>{description}</code> - The description of your post, as defined in its Header.</li>
+<li><code>{content}</code> - The actual content of your post, as written in Markdown.</li>
+<li><code>2020-07-09</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
+</ul>
+<p>*<em>Headers will be explained shortly.</em></p>
+<p>Here is an example of a typical template, including a favicon set, external
+fonts, and a code block formatter.</p>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;en&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1.0&quot;&gt;
+    &lt;meta name=&quot;description&quot; content=&quot;{description}&quot;&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;16x16&quot; href=&quot;../favicons/16.png&quot;&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;32x32&quot; href=&quot;../favicons/32.png&quot;&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;180x180&quot; href=&quot;../favicons/180.png&quot;&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;192x192&quot; href=&quot;../favicons/192.png&quot;&gt;
+    &lt;link rel=&quot;icon&quot; type=&quot;image/png&quot; sizes=&quot;512x512&quot; href=&quot;../favicons/512.png&quot;&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;https://indestructibletype.com/fonts/Jost.css&quot; type=&quot;text/css&quot; charset=&quot;utf-8&quot; /&gt;
+    &lt;link href=&quot;https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&amp;display=swap&quot; rel=&quot;stylesheet&quot;&gt; 
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./assets/prism.css&quot;&gt;
+    &lt;script src=&quot;./assets/prism.js&quot;&gt;&lt;/script&gt;
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;./assets/style.css&quot;&gt;
+    &lt;title&gt;knaque's blog - {title}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;span class=&quot;date&quot;&gt;&lt;i&gt;last updated on 2020-07-09&lt;/i&gt;&lt;/span&gt; - &lt;a href=&quot;../index.html&quot;&gt;homepage&lt;/a&gt;
+{content}
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<p>Once you've made a template, you can test it with <code>jeknil -e</code>. This will
+generate the file <code>template-example_&lt;date&gt;.html</code> with some example content, allowing you
+to quickly ensure everything is displaying as it should.</p>
+<h2>Writing posts</h2>
+<h3>The Header</h3>
+<p>Now it's time to write a post. The only Jeknil-unique part of this process is
+the <em>Header</em>, which is very similar to Jekyll's <em>Front Matter</em>. The Header
+starts with <code>~!</code> and ends with <code>!~</code>, or alternatively with standard HTML
+comments. (Jeknil uses whichever it finds first. This is because using these
+symbols more than once causes a parsing error.) At the moment, the Header is
+used to define the <code>{title}</code> and <code>{description}</code> variables, therefore a standard
+Header would be:</p>
+<pre><code>~!
+title: &quot;An example title&quot;
+description: &quot;An example description.&quot;
+!~
+</code></pre>
+<p>You <em>must</em> put each in quotes in order for it to be parsed properly. A Header
+can be anywhere in the document, but generally it's best to put it at the
+beginning.</p>
+<p>Everything else is standard Markdown, and most thing should be supported.</p>
+<h3>Code Syntax Highlighting</h3>
+<p>If you put the language just after the opening of a large code block
+(i.e.```nim), a class for that language will automatically be added
+(<code>language-nim</code> in this case), meaning nothing extra is required to use a code
+formatter; just include a one in your <code>template.html</code> and specify the language
+in your Markdown.</p>
+<h2>Generating the result</h2>
+<p>Once you're done writing your post, simply run <code>jeknil some-post.md</code> and Jeknil
+will output the generated file in your current working directory, with the
+format <code>&lt;header title&gt;_YYYY-MM-DD.html</code> for the file name.</p>
+<p>If you don't want save your generated posts in your working directory, the
+default behavior can be overwritten with the <code>-o:&lt;dir&gt;</code> flag.
+(i.e. <code>jeknil -o:./some_dir</code>)</p>
+<p>Jeknil can also generate multiple posts at once, simply by listing every post
+separated by a space, i.e. (<code>jeknil post1.md post2.md etc.md</code>)</p>
+<hr />
+<h3>If this documentation could be improved in any way, don't hesitate to raisea GitHub issue describing your thoughts.</h3>
+
+</body>
+</html>
