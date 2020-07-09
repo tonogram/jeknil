@@ -3,7 +3,7 @@ title: "Jeknil's README"
 description: "Everything you need to know to get started with Jeknil."
 -->
 
-![Jeknil Banner](https://knaque.dev/ext/jeknil/jeknil_banner.png "Jeknil Banner")
+<img src="https://knaque.dev/ext/jeknil/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" class="banner"/>
 
 [![nimble](https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png)](https://github.com/knaque/nimble-tag-2)
 
@@ -17,15 +17,17 @@ possible to use. No dependencies, no unnecessary deployment process, just a
 single executable that turns Markdown into HTML.
 
 If you're viewing this at [knaque.dev/jeknil](https://knaque.dev/jeknil), then
-you're looking at Jeknil own README turned into nice HTML.
-[Repository](https://github.com/knaque/jeknil)
+you're looking at Jeknil own README turned into nice HTML, with a bit of manual
+editing since it's a bit hard to talk about Jeknil's variables when they're
+being replaced, as will be explained shortly.
+[GitHub Repository](https://github.com/knaque/jeknil)
 
 # Installation
 Make sure you have both the Nim compiler and the Nimble package manager
-installed via `nim -v` and `nimble -v` respectively. If you don't both can be
+installed via `nim -v` and `nimble -v` respectively. If you don't, both can be
 installed simultaneously [here](https://nim-lang.org/install.html). Once both
-are installed, just do `nimble install jeknil` and Jeknil will shortly be made
-available in your command line.
+are installed, just do `nimble install jeknil`, and wait a moment for it to
+compile. Once it's done, `jeknil` will be available on your command line.
 
 ## Building from source
 Follow the same instructions as above to ensure you have both the Nim compiler 
@@ -122,7 +124,23 @@ You *must* put each in quotes in order for it to be parsed properly. A Header
 can be anywhere in the document, but generally it's best to put it at the
 beginning.
 
-Everything else is standard Markdown, and most thing should be supported.
+Everything else is standard Markdown, and most things should be supported. You
+can even include HTML inside your markdown, allowing you to use things such
+as Classes and IDs to improve formatting. See this README's top banner for an
+example:
+
+```markdown
+An HTML `<img>` with a class!
+<img src="https://knaque.dev/ext/jeknil/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" class="banner"/>
+
+Then some Markdown images...
+[![nimble](https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png)](https://github.com/knaque/nimble-tag-2)
+
+And finally, plain Markdown text...
+```
+
+Even the Template variables from before (except for `{content}`) can be used in
+your Markdown.
 
 ### Code Syntax Highlighting
 
@@ -147,4 +165,4 @@ separated by a space, i.e. (`jeknil post1.md post2.md etc.md`)
 
 ---
 
-### If this documentation could be improved in any way, don't hesitate to raise a GitHub issue describing your thoughts.
+### If this documentation could be improved in any way, don't hesitate to [raise a GitHub issue](https://github.com/Knaque/jeknil/issues/new) describing your thoughts.

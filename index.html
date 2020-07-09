@@ -15,8 +15,8 @@
     <link rel="stylesheet" href="https://knaque.dev/ext/jeknil/font/epilogue.css" type="text/css" charset="utf-8" />
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet"> 
 
-    <link rel="stylesheet" href="https://knaque.dev/blog/assets/prism.css">
-    <script src="https://knaque.dev/blog/assets/prism.js"></script>
+    <script defer src="./prismjs/prism.js"></script>
+    <link rel="stylesheet" href="./prismjs/prism.css">
 
     <style>
         body {
@@ -26,38 +26,43 @@
             margin: 2em 20% 2em 20%;
         }
 
-        code {
-            font-family: 'Fira Code';
-        }
+        code {font-family: 'Fira Code';}
 
-        img {
-            width: 75%;
-        }
+        .banner {width: 75%;}
         
         a:link, a:visited {color: #FFCC00;}
         a:hover, a:active {color: #FF9900;}
 
-        .date {color: #211F1F;}
-        
+        .date {color: #171717;}
+
+        h1 {color: #FFCC00;}
+
+        code {color: #FFCC00;}
     </style>
 
     <title>Jeknil's README</title>
 </head>
 <body>
-<span class="date"><i>Last updated on 2020-07-09</i></span>
-<p><img src="https://knaque.dev/ext/jeknil/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" /></p>
-<p>Jeknil is a dead-simple static blog post generator designed to be as simple as
-possible. No dependencies, no unnecessary deployment process, just a single
-executable that turns Markdown into HTML.</p>
+<span class="date"><i>Last updated on 2020-07-09</i></span><br><br>
+<img src="https://knaque.dev/ext/jeknil/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" class="banner"/>
+<p><a href="https://github.com/knaque/nimble-tag-2"><img src="https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png" alt="nimble" /></a></p>
+<p><a href="https://nimble.directory/pkg/stalinsort"><img src="https://nimble.directory/ci/badges/jeknil/version.svg" alt="version" /></a>
+<a href="https://github.com/Knaque/stalinsort"><img src="https://nimble.directory/ci/badges/jeknil/nimdevel/status.svg" alt="install test" /></a>
+<a href="https://nimble.directory/docs/stalinsort//stalinsort.html"><img src="https://nimble.directory/ci/badges/jeknil/nimdevel/docstatus.svg" alt="doc build" /></a></p>
+<p>Jeknil is a dead-simple static blog post generator designed to be as easy as
+possible to use. No dependencies, no unnecessary deployment process, just a
+single executable that turns Markdown into HTML.</p>
 <p>If you're viewing this at <a href="https://knaque.dev/jeknil">knaque.dev/jeknil</a>, then
-you're looking at Jeknil own README turned into nice HTML.
-<a href="https://github.com/knaque/jeknil">Repository</a></p>
+you're looking at Jeknil own README turned into nice HTML, with a bit of manual
+editing since it's a bit hard to talk about Jeknil's variables when they're
+being replaced, as will be explained shortly.
+<a href="https://github.com/knaque/jeknil">GitHub Repository</a></p>
 <h1>Installation</h1>
 <p>Make sure you have both the Nim compiler and the Nimble package manager
-installed via <code>nim -v</code> and <code>nimble -v</code> respectively. If you don't both can be
+installed via <code>nim -v</code> and <code>nimble -v</code> respectively. If you don't, both can be
 installed simultaneously <a href="https://nim-lang.org/install.html">here</a>. Once both
-are installed, just do <code>nimble install jeknil</code> and Jeknil will shortly be made
-available in your command line.</p>
+are installed, just do <code>nimble install jeknil</code>, and wait a moment for it to
+compile. Once it's done, <code>jeknil</code> will be available on your command line.</p>
 <h2>Building from source</h2>
 <p>Follow the same instructions as above to ensure you have both the Nim compiler
 and Nimble package manager. Once you do, clone this repository, then
@@ -86,7 +91,7 @@ The currently available variables are:</p>
 <li><code>{title}</code> - The title of your post, as defined in its Header*.</li>
 <li><code>{description}</code> - The description of your post, as defined in its Header.</li>
 <li><code>{content}</code> - The actual content of your post, as written in Markdown.</li>
-<li><code>2020-07-09</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
+<li><code>{date}</code> - The date the post was generated in the <code>YYYY-MM-DD</code> format.</li>
 </ul>
 <p>*<em>Headers will be explained shortly.</em></p>
 <p>Here is an example of a typical template, including a favicon set, external
@@ -110,7 +115,7 @@ fonts, and a code block formatter.</p>
     &lt;title&gt;knaque's blog - {title}&lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;span class=&quot;date&quot;&gt;&lt;i&gt;last updated on 2020-07-09&lt;/i&gt;&lt;/span&gt; - &lt;a href=&quot;../index.html&quot;&gt;homepage&lt;/a&gt;
+&lt;span class=&quot;date&quot;&gt;&lt;i&gt;last updated on {date}&lt;/i&gt;&lt;/span&gt; - &lt;a href=&quot;../index.html&quot;&gt;homepage&lt;/a&gt;
 {content}
 &lt;/body&gt;
 &lt;/html&gt;
@@ -135,7 +140,20 @@ description: &quot;An example description.&quot;
 <p>You <em>must</em> put each in quotes in order for it to be parsed properly. A Header
 can be anywhere in the document, but generally it's best to put it at the
 beginning.</p>
-<p>Everything else is standard Markdown, and most thing should be supported.</p>
+<p>Everything else is standard Markdown, and most things should be supported. You
+can even include HTML inside your markdown, allowing you to use things such
+as Classes and IDs to improve formatting. See this README's top banner for an
+example:</p>
+<pre><code class="language-markdown">An HTML `&lt;img&gt;` with a class!
+&lt;img src=&quot;https://knaque.dev/ext/jeknil/jeknil_banner.png&quot; alt=&quot;Jeknil Banner&quot; title=&quot;Jeknil Banner&quot; class=&quot;banner&quot;/&gt;
+
+Then some Markdown images...
+[![nimble](https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png)](https://github.com/knaque/nimble-tag-2)
+
+And finally, plain Markdown text...
+</code></pre>
+<p>Even the Template variables from before (except for <code>{content}</code>) can be used in
+your Markdown.</p>
 <h3>Code Syntax Highlighting</h3>
 <p>If you put the language just after the opening of a large code block
 (i.e.```nim), a class for that language will automatically be added
@@ -152,7 +170,7 @@ default behavior can be overwritten with the <code>-o:&lt;dir&gt;</code> flag.
 <p>Jeknil can also generate multiple posts at once, simply by listing every post
 separated by a space, i.e. (<code>jeknil post1.md post2.md etc.md</code>)</p>
 <hr />
-<h3>If this documentation could be improved in any way, don't hesitate to raise a GitHub issue describing your thoughts.</h3>
+<h3>If this documentation could be improved in any way, don't hesitate to <a href="https://github.com/Knaque/jeknil/issues/new">raise a GitHub issue</a> describing your thoughts.</h3>
 
 </body>
 </html>

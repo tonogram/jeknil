@@ -20,7 +20,7 @@ template makeTitle(s: string): string =
 
 # shorthand for replacing vars with values
 template replaceVars(s, t, d, c: string): string =
-  s.replace("{title}", t).replace("{description}", d).replace("{content}", c)
+  s.replace("{content}", c).replace("{title}", t).replace("{description}", d)
     .replace("{date}", date)
 
 
