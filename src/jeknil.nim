@@ -7,7 +7,7 @@ let date = getDateStr()
 # adds / if needed
 proc addSlash(s: string): string =
   result = s
-  if s[s.len-1] != '/': result.add('/')
+  if s[^1] != '/': result.add('/')
 
 # shorthand for creating a stream & config
 proc getMetadata(f: string): Config =
@@ -15,13 +15,17 @@ proc getMetadata(f: string): Config =
 
 # replace certain characters for a friendlier title
 template makeTitle(s: string): string =
-  s.replace(" ", "-").replace(".", "").replace("'", "")
+  s.multiReplace({" ": "-", ".": "", "'": ""})
     .toLowerAscii() & '_' & date & ".html"
 
 # shorthand for replacing vars with values
 template replaceVars(s, t, d, c: string): string =
-  s.replace("{content}", c).replace("{title}", t).replace("{description}", d)
-    .replace("{date}", date)
+  s.multiReplace({
+    "{content}": c, 
+    "{title}": t, 
+    "{description}": d, 
+    "{date}": date
+  })
 
 # error checking for loading template
 proc tryLoadTemplate(t: string): string =
