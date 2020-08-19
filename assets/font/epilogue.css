@@ -1,0 +1,162 @@
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Bold Italic'), local('Epilogue-BoldItalic'),
+        url('Epilogue-BoldItalic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue SemiBold Italic'), local('Epilogue-SemiBoldItalic'),
+        url('Epilogue-SemiBoldItalic.woff2') format('woff2');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue ExtraBold Italic'), local('Epilogue-ExtraBoldItalic'),
+        url('Epilogue-ExtraBoldItalic.woff2') format('woff2');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue SemiBold'), local('Epilogue-SemiBold'),
+        url('Epilogue-SemiBold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Light Italic'), local('Epilogue-LightItalic'),
+        url('Epilogue-LightItalic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Medium Italic'), local('Epilogue-MediumItalic'),
+        url('Epilogue-MediumItalic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Thin Italic'), local('Epilogue-ThinItalic'),
+        url('Epilogue-ThinItalic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Italic'), local('Epilogue-Italic'),
+        url('Epilogue-Italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue ExtraLight Italic'), local('Epilogue-ExtraLightItalic'),
+        url('Epilogue-ExtraLightItalic.woff2') format('woff2');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Regular'), local('Epilogue-Regular'),
+        url('Epilogue-Regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue ExtraBold'), local('Epilogue-ExtraBold'),
+        url('Epilogue-ExtraBold.woff2') format('woff2');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Thin'), local('Epilogue-Thin'),
+        url('Epilogue-Thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Medium'), local('Epilogue-Medium'),
+        url('Epilogue-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Black'), local('Epilogue-Black'),
+        url('Epilogue-Black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Black Italic'), local('Epilogue-BlackItalic'),
+        url('Epilogue-BlackItalic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue ExtraLight'), local('Epilogue-ExtraLight'),
+        url('Epilogue-ExtraLight.woff2') format('woff2');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Bold'), local('Epilogue-Bold'),
+        url('Epilogue-Bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Epilogue';
+    src: local('Epilogue Light'), local('Epilogue-Light'),
+        url('Epilogue-Light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+

@@ -3,7 +3,7 @@ title: "Jeknil's README"
 description: "Everything you need to know to get started with Jeknil."
 -->
 
-<img src="https://knaque.dev/ext/jeknil/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" class="banner"/>
+<img src="./assets/jeknil_banner.png" alt="Jeknil Banner" title="Jeknil Banner" class="banner"/>
 
 [![nimble](https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png)](https://github.com/knaque/nimble-tag-2)
 
