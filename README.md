@@ -7,9 +7,9 @@ description: "Everything you need to know to get started with Jeknil."
 
 [![nimble](https://raw.githubusercontent.com/knaque/nimble-tag-2/master/nimble-tag-2.png)](https://github.com/knaque/nimble-tag-2)
 
-[![version](https://nimble.directory/ci/badges/jeknil/version.svg)](https://nimble.directory/pkg/stalinsort)
-[![install test](https://nimble.directory/ci/badges/jeknil/nimdevel/status.svg)](https://github.com/Knaque/stalinsort)
-[![doc build](https://nimble.directory/ci/badges/jeknil/nimdevel/docstatus.svg)](https://nimble.directory/docs/stalinsort//stalinsort.html)
+[![version](https://nimble.directory/ci/badges/jeknil/version.svg)](https://nimble.directory/pkg/jeknil)
+[![install test](https://nimble.directory/ci/badges/jeknil/nimdevel/status.svg)](https://github.com/Knaque/jeknil)
+[![docs](https://nimble.directory/ci/badges/jeknil/nimdevel/docstatus.svg)](https://knaque.dev/jeknil/index.html)
 
 
 Jeknil is a dead-simple static blog post generator designed to be as easy as
