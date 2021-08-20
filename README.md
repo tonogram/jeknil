@@ -16,7 +16,7 @@ Jeknil is a dead-simple static blog post generator designed to be as easy as
 possible to use. No dependencies, no unnecessary deployment process, just a
 single executable that turns Markdown into HTML.
 
-If you're viewing this at [knaque.dev/jeknil](https://knaque.dev/jeknil), then
+If you're viewing this at [possum.page/jeknil](https://possum.page/jeknil), then
 you're looking at Jeknil own README turned into nice HTML, with a bit of manual
 editing since it's a bit hard to talk about Jeknil's variables when they're
 being replaced, as will be explained shortly.
